@@ -3,7 +3,7 @@ Spree::Admin::ProductsController.class_eval do
   before_filter :product_store, :only => :index
 
   def product_store
-    Spree::Product.by_store(current_store.id) if current_store.id
+    @collection = Spree::Product.by_store(current_store.id) if current_store.id
   end
 
   private
